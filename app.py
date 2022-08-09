@@ -4,7 +4,7 @@ from pyexpat import model
 import string
 #from nltk.corpus import stopwords
 import nltk
-#nltk.download('stopwords')
+nltk.download('stopwords')
 #from sklearn.feature_extraction.text import CountVectorizer
 
 from flask import Flask, request
@@ -53,7 +53,7 @@ def clean_text(text):
     special = ''.join(special)
     # remove stop words
     stop = nltk.corpus.stopwords.words('english')
-    #stop = stopwords.words('english')
+    #stop = nltk.stopwords.words('english')
     text = [x for x in text if x not in stop]
     # join all
     text = " ".join(text)
