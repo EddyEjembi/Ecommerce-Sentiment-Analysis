@@ -2,7 +2,9 @@ from json import load
 import pickle
 from pyexpat import model
 import string
-from nltk.corpus import stopwords
+#from nltk.corpus import stopwords
+import nltk
+#nltk.download('stopwords')
 #from sklearn.feature_extraction.text import CountVectorizer
 
 from flask import Flask, request
@@ -50,7 +52,8 @@ def clean_text(text):
     special = [value for value in text if value.isalnum() or value == ' ']
     special = ''.join(special)
     # remove stop words
-    stop = stopwords.words('english')
+    stop = nltk.corpus.stopwords.words('english')
+    #stop = stopwords.words('english')
     text = [x for x in text if x not in stop]
     # join all
     text = " ".join(text)
